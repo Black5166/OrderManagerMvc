@@ -19,10 +19,10 @@ namespace OrderManagerMvc.Models
         [StringLength(40)]
         public string Status { get; set; } = "Draft";
 
-        public List<OrderItem> Items { get; set; } = new List<OrderItem>();
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>(); // Fixed naming
 
         [NotMapped]
         [DataType(DataType.Currency)]
-        public decimal Total => Items.Sum(i => i.Quantity * i.UnitPrice); // Use Quantity * UnitPrice
+        public decimal Total => OrderItems.Sum(i => i.Quantity * i.UnitPrice); // Updated to use OrderItems
     }
 }
